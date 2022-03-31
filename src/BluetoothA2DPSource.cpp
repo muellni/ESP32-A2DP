@@ -413,7 +413,7 @@ void BluetoothA2DPSource::filter_inquiry_scan_result(esp_bt_gap_cb_param_t *para
 			{
 				int len = strlen(name);
 				ESP_LOGI(BT_AV_TAG, "--Checking match: %s", name);
-				if (strncmp((char *)s_peer_bdname, name, len) == 0) {
+				if (len == 0 || strncmp((char *)s_peer_bdname, name, len) == 0) {
 					this->bt_name = (char *) s_peer_bdname;
 					found = true;
 					break;
